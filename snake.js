@@ -5,8 +5,8 @@ var snakeSize = 10;
 var snake;
 var x;
 var y;
-// Draw the snake
 
+// Draw the snake
 function drawSnake(){
     this.snakeSize = snakeSize;
    
@@ -21,25 +21,9 @@ function drawSnake(){
         
     }
 }
-  
-// When the user press space key the game starts
-// If the user move any of the keys arrow is have to move right/left/up/down
-function sneakyMove(){
-    if(move == "up"){
-        y++;
-    }
-    else if(move == "down"){
-        y--;
-    }
-    else if(move == "left"){
-        x--;
-    }
-    else if(move == "right"){
-        x++;
-    }  
-}
-// Create Food - Append food in random places inside the stage
-//Create Food - Append food in random places inside the stage
+
+// Create Food 
+// Append food in random places inside the stage
 function snakeFood() {
     var rx = Math.random() * canvas.width;
     var ry = Math.random() * canvas.height;
@@ -47,17 +31,14 @@ function snakeFood() {
     ctx.fillStyle = 'rgb(214, 55, 5)';
     ctx.fillRect(rx, ry, 10, 5);
 }
+
+// Snake eats  
 // If the snake touch any food she will grow 
+// When the snake eats she grows
 
-// Create Events - When the key is pressed move the snake whatever the direction it is
-//Game over
-//If the snakes touch any wall stage GAME OVER and RESTART
 
-//If snaek touch her body GAME OVER and RESTART
-
-// Snake eats - when the snake eats she needs to grow
-
-//Create Controls
+// Create Controls
+// When the key is pressed move the snake whatever the direction it is
 window.addEventListener('keydown',
     function (e) {
         switch (e.which) {
@@ -76,9 +57,30 @@ window.addEventListener('keydown',
                 break;
             default:
                 
+                
                 break;
         }
     });
+
+// If the user move any of the keys arrow is have to move right/left/up/down
+function sneakyMove(){
+    if(move == "up"){
+        y++;
+    }
+    else if(move == "down"){
+        y--;
+    }
+    else if(move == "left"){
+        x--;
+    }
+    else if(move == "right"){
+        x++;
+    }  
+}
+
+//Game over
+//If the snakes touch any wall stage GAME OVER and RESTART
+//If snaek touch her body GAME OVER and RESTART
 
 // Game starts
 
