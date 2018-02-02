@@ -2,17 +2,12 @@
 // If the snake use touch any food she will grow up adding a bullet img 
 // If the sknake touch the walla it dies and start again
 
-var keydir = {
-    x: undefined,
-    y: undefined
-}
+
 
 // When the user click play or press any arrow key the snake starts to move
 window.addEventListener('keydown',
     function (e) {
-        keydir.x = e.x;
-        keydir.y = e.y;
-        console.log(keydir);
+
         switch (e.which) {
             case 37:
                 goLeft();
