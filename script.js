@@ -40,6 +40,38 @@ function goDown(){
 }
 //Created Canvas Snake Home
 
+
+// When the user click play or press any arrow key the snake starts to move
+window.addEventListener('keydown',
+    function (e) {
+
+        switch (e.which) {
+            case 37:
+                goLeft();
+                break;
+            case 38:
+                console.log("press up");
+                break;
+            case 39:
+                console.log("press right");
+                break;
+            case 40:
+                goDown();
+                break;
+            default:
+                animate();
+                break;
+        }
+    });
+//Directions
+function goLeft(){
+    console.log('I am in goLeft Function');
+}
+function goDown(){
+    animate();
+}
+//Created Canvas Snake Home
+
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 

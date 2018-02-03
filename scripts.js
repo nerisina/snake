@@ -5,11 +5,20 @@ var w = canvas.width;
 var h = canvas.height;
 var size = 10;
 var snake;
+<<<<<<< HEAD
 //Create Snake
 function bodySnake(x, y) {
     ctx.fillStyle = 'rgb(187, 170, 204)';
     ctx.fillRect(x*size, y*size, size, size);
      
+=======
+var x;
+var y;
+//Create Snake
+function bodySnake(x, y) {
+    ctx.fillStyle = 'rgb(187, 170, 204)';
+    ctx.fillRect(, , size, size);  
+>>>>>>> 40b8e92d6cba75e24c26884f7f2ab4d431ce48fb
 }
 
 function skSnake() {
@@ -67,6 +76,7 @@ canvas.addEventListener('keydown',
 
         switch (e.which) {
             case 37:
+<<<<<<< HEAD
                 goLeft;
                 break;
             case 38:
@@ -80,12 +90,31 @@ canvas.addEventListener('keydown',
                 break;
             default:
                 animate();
+=======
+                move = "left";
+                break;
+            case 38:
+                move = "up";
+                break;
+            case 39:
+                move = "right"
+                break;
+            case 40:
+                move = "down"
+                break;
+            default:
+                
+>>>>>>> 40b8e92d6cba75e24c26884f7f2ab4d431ce48fb
                 break;
         }
     });
 // INISIALITATION OF game
 function init() {
+<<<<<<< HEAD
     direction = 'right';
+=======
+    move = 'right';
+>>>>>>> 40b8e92d6cba75e24c26884f7f2ab4d431ce48fb
     snakeFood();
     skSnake();
 }
