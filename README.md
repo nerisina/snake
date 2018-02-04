@@ -1,9 +1,6 @@
 # Snake Game
 
-## Usage
-Unzip the folder and ouble click index.html.  
-
-I created a simple css and js files in the same folder which are called from index.
+## files
 
 This folder contains:
 
@@ -15,19 +12,19 @@ This folder contains:
 --
 
 # Next steps
-
-- Add functionality to the spacebar. 
-
-    - The user will be able to start the game onces the spacebar is pressed. I will add to the switch an other case to detect the keycode number 8 (spacebar) named start.
-    - When the spacebar is pressed the game starts the snake starts to move and food appends.
-
-- To make the snake move:
-    - Created an empty array
-    - Add to the array elements with (x,y) values.
-    - The tail (index[0]) will be the new head (index[last])
+- Snake move:
+    - To make the snake move: The queues data structure is the best solution. The tail (index[0]) will be removed and added to the end which is the head (index[last])
+	- snake = [0,1,2,3]
+    - snake = [1,2,3,0]
+    - snake = [2,3,0,1]
+    - snake = [3,0,1,2]
     
-- The function food() before show anything have to make sure that the body of the snake is not in the same place than the random food is that the case: If the random (x,y) is the same as the body this will generate another random number (x,y).
+- If the random coordinates (x,y) of food is the same as the body this will generate another random number for (x,y).
 
-- When the snake eat a new head will added to the body and the length will increased ex: snake = [0,1,2,3], snake = [0,1,2,3,4] 
+- When the snake eats, the new head will be added to the body ex: 
+    - snake = [0,1,2,3]
+    - snake = [0,1,2,3,4] 
 
-- The game over is when the snake have a collision in the wall which the (x,y) shouldn’t be the same as the array length. If the snake array head position (x,y) is not less that the canvas.height and canvas.witdth.
+- The score counting will starts after she eats her first food.
+
+- Game over: If two elements in the array have the same coordinates (x,y) or if the head of the snake touch the walls. The game restarts. 

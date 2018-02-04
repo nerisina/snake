@@ -1,0 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+body{font-family: 'Space Mono', monospace;}
+canvas{ border: 2px solid #ed143d; margin: 0 auto; display: block; background-color: #ffc107;}
+h1{color: #ed143d; text-align: center;}
