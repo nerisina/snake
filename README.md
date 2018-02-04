@@ -1,6 +1,6 @@
 # Snake Game
 
-## files
+## Files
 
 This folder contains:
 
