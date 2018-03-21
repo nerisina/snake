@@ -1,74 +1,58 @@
 // Create Stage
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-var size = 10;
-var x, y, sl;
-var snake = [];
+var wormArray = [];
 
-//    snake.push({
-//        x: 0,
-//        y: 0
-//    });
+// Creating the worm square and lenght
+var Square = function (x, y, size, num) {
+  this.x = x;
+  this.y = y;
+  this.size = size;
+  this.num = num;
 
-// push objetcs inside
-//var push = function () {
-//    snake.push({
-//        x: x++,
-//        y: y++
-//    })
-//}
-
-// Creating the snake square and lenght
-var square = function (x, y) {
+  this.drawWorm = function () {
     ctx.fillStyle = 'rgb(214, 55, 5)';
-    ctx.fillRect(x * size, y * size, size, size);
+    ctx.fillRect(this.x * this.size, this.y * this.size, this.size, this.size);
     ctx.strokeStyle = 'rgb(0, 255, 255)';
-    ctx.strokeRect(x * size, y * size, size, size);
+    ctx.strokeRect(this.x * this.size, this.y * this.size, this.size, this.size);
+    ctx.font = '18px serif';
+    ctx.fillText(this.num, this.x * this.size, this.y * this.size);
+  };
+
+  this.update = function () {
+    this.drawWorm();
+
+    var tail = wormArray.shift();
+    var head = wormArray[sl - 1].x;
+    wormArray.push({
+      x: head + 1,
+      y: 4
+    });
+
+
+  };
+};
+
+
+for (var i = 0; i < 3; i++) {
+  var x = i + 1;
+  var y = 4;
+  var size = 10;
+  wormArray.push(new Square(x, y, size, i));
+
 }
-var drawWorm = function (x,y) {
-    sl = 3;
-    for (var i = 0; i <= sl; i++) {
-        snake.push({
-            x: i,
-            y: 0
-        });
-    }
-       square(snake[i].x++, snake[i].y);
-    
+for (var i = 0; i < wormArray.length; i++) {
+  wormArray[i].update();
 }
 
-var interval = setInterval(function (x, y) {
-    sl = snake.length;
-//     snake.push({
-//            x: snake[snake.length]+1,
-//            y: 0
-//        });
-    console.log(sl);
-    
-    if(sl<4){
-        temp = snake.pop();
-        
-    }
-    else{
-       drawWorm(x,y);
-        
-    }
-    
-    
-}, 1000);
+function animate() {
+  requestAnimationFrame(animate);
 
+  for (var a = 0; a < 3; a++) {
 
-//sl = snake.length;
-//
-//for (var i = 0; i <= sl; i++) {
-//    var sn = snake[i];
-//    if (typeof sn !== 'undefined') {
-//        square(sn.x, sn.y);
-//    }
-//}
+    // wormArray[i].update();
+  }
 
-//setInterval(function() {
-//                  window.location.reload();
-//                }, 30000);
+}
 
-drawWorm();
+animate();
