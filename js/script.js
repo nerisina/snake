@@ -21,14 +21,11 @@ var Square = function (x, y, size, num) {
 
   this.update = function () {
     this.drawWorm();
-
-    var tail = wormArray.shift();
-    var head = wormArray[sl - 1].x;
-    wormArray.push({
-      x: head + 1,
-      y: 4
-    });
-
+    this.x = this.x++;
+    console.log(x);
+//    for (var i = 0; i < wormArray.length; i++) {
+//      console.log(wormArray[i].x+1);
+//    }
 
   };
 };
@@ -39,20 +36,14 @@ for (var i = 0; i < 3; i++) {
   var y = 4;
   var size = 10;
   wormArray.push(new Square(x, y, size, i));
+}
 
-}
-for (var i = 0; i < wormArray.length; i++) {
-  wormArray[i].update();
-}
 
 function animate() {
   requestAnimationFrame(animate);
-
-  for (var a = 0; a < 3; a++) {
-
-    // wormArray[i].update();
+  for (var i = 0; i < wormArray.length; i++) {
+    wormArray[i].update();
   }
-
 }
 
 animate();
